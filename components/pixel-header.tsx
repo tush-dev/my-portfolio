@@ -40,8 +40,8 @@ export function PixelHeader() {
 
   const toggleSiteMusic = async () => {
     try {
-      const filename = "The Ronettes - Be my baby (slowed + reverb) - NichXXX.mp3";
-      const src = "/" + encodeURIComponent(filename);
+      const filename = "be-my-baby-nichxxx.mp3";
+      const src = "/" + filename;
       const w = window as any;
       if (!w.__siteMusicAudio) {
         w.__siteMusicAudio = new Audio(src);
