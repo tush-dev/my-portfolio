@@ -64,9 +64,11 @@ export function PixelFooter() {
                 title="Back to home"
                 onClick={() => playLogoSound()}
               >
-                <img
+                <Image
                   src="/imgbin_5ac13c4af42833d754d03e432fc3399f.png"
                   alt="Tushar Logo"
+                  width={128}
+                  height={128}
                   className="w-28 h-28 md:w-32 md:h-32 object-contain logo-image flex-shrink-0"
                 />
               </Link>

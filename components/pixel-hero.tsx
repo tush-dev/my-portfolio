@@ -80,6 +80,7 @@ export function PixelHero() {
               <Image
                 src="/wp12793589-alone-anime-boy-4k-wallpapers.jpg"
                 alt="Developer workstation"
+                priority
                 fill
                 className="object-cover"
                 style={{ imageRendering: "pixelated" }}

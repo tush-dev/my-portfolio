@@ -86,12 +86,13 @@ export function NavMenu() {
       </nav>
 
       {/* Mobile menu button */}
-      <div className="md:hidden relative">
+      <div className="md:hidden relative z-50">
         <button
           onClick={() => setOpen((s) => !s)}
           aria-expanded={open}
           aria-label="Open menu"
-          className="p-2 rounded border-2 border-black dark:border-white bg-white dark:bg-foreground"
+          aria-controls="mobile-menu"
+          className="p-2 rounded border-2 border-black dark:border-white bg-white dark:bg-black"
         >
           {/* simple hamburger */}
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,14 +101,19 @@ export function NavMenu() {
         </button>
 
         {open && (
-          <div className="absolute right-0 mt-2 w-44 bg-white dark:bg-foreground border-2 border-black rounded shadow-lg z-40">
+          <div
+            id="mobile-menu"
+            role="menu"
+            className="absolute top-full right-2 mt-2 min-w-[10rem] w-44 bg-white text-black dark:bg-black dark:text-white border-2 border-black rounded shadow-lg z-50 overflow-hidden"
+          >
             <ul className="flex flex-col">
               {navItems.map((item) => (
                 <li key={item.path}>
                   <Link
                     href={item.path}
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-2 px-3 py-2 hover:bg-primary/80"
+                    role="menuitem"
+                    className="flex items-center gap-2 px-3 py-2 hover:bg-primary/80 text-black dark:text-white"
                   >
                     <span>{item.icon}</span>
                     <span className="font-bold">{item.name}</span>
@@ -115,7 +121,7 @@ export function NavMenu() {
                 </li>
               ))}
               <li>
-                <a href={profile.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-3 py-2 hover:bg-primary/80">
+                <a href={profile.linkedin} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-3 py-2 hover:bg-primary/80 text-black dark:text-white">
                   <LinkedinIcon size={20} />
                   <span className="font-bold">LinkedIn</span>
                 </a>

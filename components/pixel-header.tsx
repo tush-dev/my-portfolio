@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -77,15 +78,18 @@ export function PixelHeader() {
           className="flex items-center gap-1"
         >
           <div className="flex items-center gap-0.5">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="logo-shake-trigger inline-flex items-center justify-center"
               onClick={() => playLogoSound()}
               title="Back to home"
             >
-              <img 
-                src="/imgbin_5ac13c4af42833d754d03e432fc3399f.png" 
-                alt="Tushar Logo" 
+              <Image
+                src="/imgbin_5ac13c4af42833d754d03e432fc3399f.png"
+                alt="Tushar Logo"
+                width={80}
+                height={80}
+                priority
                 className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain logo-image flex-shrink-0"
               />
             </Link>
@@ -112,6 +116,8 @@ export function PixelHeader() {
             <img
               src="/pngaaa.com-4859607.png"
               alt="Song cover"
+              loading="lazy"
+              decoding="async"
               onError={(e) => {
                 const t = e.target as HTMLImageElement;
                 t.src = profile.photo || "/IMG_0003.jpg";
