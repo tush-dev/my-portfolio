@@ -4,15 +4,35 @@ import { useEffect, useState } from 'react';
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [showCursor, setShowCursor] = useState(false);
 
   useEffect(() => {
+    // Only show custom cursor on devices that support hovering (desktop/laptop)
+    try {
+      const mq = window.matchMedia && window.matchMedia('(hover: hover)');
+      const canHover = mq ? mq.matches : false;
+      setShowCursor(Boolean(canHover));
+    } catch (e) {
+      setShowCursor(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!showCursor) return;
+
     const updatePosition = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
 
+    // Mouse for desktop
     window.addEventListener('mousemove', updatePosition);
-    return () => window.removeEventListener('mousemove', updatePosition);
-  }, []);
+
+    return () => {
+      window.removeEventListener('mousemove', updatePosition);
+    };
+  }, [showCursor]);
+
+  if (!showCursor) return null;
 
   return (
     <div 

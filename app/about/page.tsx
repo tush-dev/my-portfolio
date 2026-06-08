@@ -21,28 +21,41 @@ export default function AboutPage() {
         <PixelSeparator />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
+          {/* Education block (column 1 on md) */}
           <div className="space-y-6">
             <h2 className="text-3xl font-bold">Education</h2>
-            
+
             <p className="text-lg">
               <a href="https://www.nitj.ac.in" target="_blank" rel="noreferrer" className="text-primary underline font-bold">
                 {education.school}
               </a>
             </p>
-            
+
             <p className="text-lg">
               {education.degree}, {education.period}
             </p>
-            
+
             <p className="text-lg">
               {education.location}
             </p>
+          </div>
 
+          {/* Image block - placed as a separate grid child so on mobile it appears between Education and Experience
+              and on md+ screens it sits in the second column */}
+          <div className="relative h-64 pixel-card overflow-hidden md:col-start-2 md:row-span-1">
+            <Image
+              src="/IMG_0003.jpg"
+              alt="Team"
+              fill
+              className="object-cover"
+              style={{ imageRendering: "pixelated" }}
+            />
+          </div>
+
+          {/* Experience block (will appear after image on mobile, and below education on md+ screens) */}
+          <div className="space-y-4">
             <h2 className="text-3xl font-bold pt-6">Experience</h2>
 
-            {/* interns removed from left column — they will render in a full-width row below so they can use available space */}
-
-            {/* Other experiences stacked below */}
             <div className="mt-6 space-y-4">
               {experience
                 .filter((e) => e.role !== "Growth Intern" && e.role !== "Analyst Intern")
@@ -69,24 +82,12 @@ export default function AboutPage() {
                 ))}
             </div>
           </div>
-          
-          <div className="space-y-4">
-            <div className="relative h-64 pixel-card overflow-hidden col-span-2">
-              <Image
-                src="/IMG_0003.jpg"
-                alt="Team"
-                fill
-                className="object-cover"
-                style={{ imageRendering: "pixelated" }}
-              />
-            </div>
-          </div>
 
-          {/* Interns row — occupies both columns (left+right) as two side-by-side cards */}
+          {/* Interns row — keep as full-width on md by spanning both columns */}
           {experience
             .filter((e) => e.role === "Growth Intern" || e.role === "Analyst Intern")
             .map((item) => (
-              <div key={item.role} className="pixel-card bg-white dark:bg-black p-8">
+              <div key={item.role} className="pixel-card bg-white dark:bg-black p-8 md:col-span-2">
                 <div className="flex items-center justify-between">
                     <h3 className="font-bold text-2xl shake-on-click cursor-pointer">{item.role}</h3>
                   {item.certificate && (
@@ -146,8 +147,8 @@ export default function AboutPage() {
         <section className="space-y-6">
           <h2 className="text-3xl font-bold">Extracurricular Leadership</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {activities.map((activity) => (
-              <div key={activity.title} className="pixel-card p-5 bg-white dark:bg-black">
+              {activities.map((activity) => (
+              <div key={activity.title} className="pixel-card p-4 sm:p-5 bg-white dark:bg-black">
                 <h3 className="text-xl font-bold shake-on-click cursor-pointer hover:translate-x-1 transition-transform">{activity.title}</h3>
                 <p className="text-lg text-muted-foreground mb-3">{activity.period}</p>
                 <ul className="space-y-2">

@@ -93,11 +93,11 @@ export function PixelHeader() {
                 className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain logo-image flex-shrink-0"
               />
             </Link>
-            <h1 className="hidden sm:block text-2xl md:text-3xl font-pixel tracking-tight leading-none ">
+            <Link href="/about" className="hidden sm:block text-2xl md:text-3xl font-pixel tracking-tight leading-none cursor-pointer" title="About">
               <span className="text-accent font-bold">Tushar</span>
               <span className="text-black dark:text-white">.dev</span>
               <span className="sr-only">{profile.name}</span>
-            </h1>
+            </Link>
           </div>
         </motion.div>
 
@@ -110,7 +110,7 @@ export function PixelHeader() {
             onClick={toggleSiteMusic}
             aria-pressed={isPlaying}
             aria-label={isPlaying ? "Pause music" : "Play music"}
-            className="relative group ml-2 flex items-center justify-center w-12 h-12 rounded-full border-2 border-black dark:border-white bg-white dark:bg-foreground overflow-hidden"
+            className="relative group ml-2 flex items-center justify-center w-12 h-12 rounded-full border-2 border-black dark:border-white bg-white dark:bg-foreground overflow-hidden transform transition-transform duration-150 ease-in-out hover:scale-110 active:scale-95"
             title={isPlaying ? "Pause song" : "Play song"}
           >
             <img
@@ -122,11 +122,11 @@ export function PixelHeader() {
                 const t = e.target as HTMLImageElement;
                 t.src = profile.photo || "/IMG_0003.jpg";
               }}
-              className={"w-10 h-10 object-cover rounded-full transition-transform " + (isPlaying ? "animate-[spin_4s_linear_infinite]" : "")}
+              className={"w-10 h-10 object-cover rounded-full transition-transform group-hover:scale-110 " + (isPlaying ? "animate-[spin_4s_linear_infinite]" : "")}
             />
 
             {/* Play / Pause icon overlay */}
-            <span className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+              <span className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none transition-transform duration-150 ease-in-out group-hover:scale-110">
               {isPlaying ? (
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black dark:text-white">
                   <rect x="6" y="5" width="4" height="14" fill="currentColor" />

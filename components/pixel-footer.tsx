@@ -72,15 +72,10 @@ export function PixelFooter() {
                   className="w-28 h-28 md:w-32 md:h-32 object-contain logo-image flex-shrink-0"
                 />
               </Link>
-              <div className="scale-150 origin-left">
-                <h3 className="text-4xl font-pixel font-bold">
-                  <span className="text-red-500">
-                    Tushar 
-                  </span>
-                  <span className="text-black dark:text-white">
-                    {" "}
-                    Panwar ...
-                  </span>
+              <div className="origin-left scale-100 sm:scale-150">
+                <h3 className="text-2xl sm:text-4xl font-pixel font-bold leading-tight">
+                  <span className="text-red-500">Tushar</span>
+                  <span className="text-black dark:text-white"> Panwar</span>
                 </h3>
               </div>
             </div>
