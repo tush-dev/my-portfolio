@@ -75,7 +75,7 @@ export function PixelFooter() {
               <div className="origin-left scale-100 sm:scale-150">
                 <h3 className="text-2xl sm:text-4xl font-pixel font-bold leading-tight">
                   <span className="text-red-500">Tushar</span>
-                  <span className="text-black dark:text-white"> Panwar</span>
+                  <span className="text-black dark:text-white"> Panwar ...</span>
                 </h3>
               </div>
             </div>
