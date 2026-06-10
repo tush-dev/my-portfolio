@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRightIcon, MailIcon } from "lucide-react";
+import { ArrowRightIcon, FileTextIcon, MailIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile } from "@/data/portfolio";
 
@@ -50,7 +50,7 @@ export function PixelHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.5 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row flex-wrap gap-4"
           >
             <Button asChild className="pixel-button text-lg py-3 sm:py-6 rounded-none">
               <Link href="/works">
@@ -64,6 +64,13 @@ export function PixelHero() {
                 Contact Me
                 <MailIcon className="ml-2 h-5 w-5" />
               </Link>
+            </Button>
+
+            <Button asChild variant="outline" className="pixel-button bg-white text-lg py-3 sm:py-6 rounded-none">
+              <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                View Resume
+                <FileTextIcon className="ml-2 h-5 w-5" />
+              </a>
             </Button>
           </motion.div>
         </motion.div>
@@ -101,10 +108,16 @@ export function PixelHero() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1.8, duration: 0.5 }}
               className="absolute -top-6 -right-6 z-10"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <div className="bg-accent border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <Link
+                href="/works"
+                title="View projects"
+                className="block bg-accent border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-colors hover:bg-accent/90 cursor-pointer"
+              >
                 <p className="text-lg font-bold text-white">10+ UI Builds</p>
-              </div>
+              </Link>
             </motion.div>
           </div>
         </motion.div>

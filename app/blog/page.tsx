@@ -1,7 +1,7 @@
 import { PixelSeparator } from "@/components/pixel-separator";
 import { BlogCard } from "@/components/blog-card";
+import { Button } from "@/components/ui/button";
 import { blogPosts } from "@/data/portfolio";
-import Link from "next/link";
 import { ExternalLinkIcon } from "lucide-react";
 
 export default function BlogPage() {
@@ -10,18 +10,17 @@ export default function BlogPage() {
       <section className="container mx-auto px-4 py-16">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
-          <p className="text-xl max-w-2xl mx-auto mb-6">
+          <p className="text-xl max-w-2xl mx-auto">
             I write technical blogs on Hashnode to deepen my understanding of fundamental concepts and explain them through clear, practical examples.
           </p>
-          <Link 
-            href="https://hashnode.com/@tush-dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground border-2 border-black hover:scale-105 transition-transform font-semibold"
-          >
-            Visit My Hashnode Profile
-            <ExternalLinkIcon size={18} />
-          </Link>
+          <div className="mt-6 flex justify-center">
+            <Button asChild variant="outline" className="pixel-button bg-white text-lg py-3 sm:py-6 rounded-none">
+              <a href="https://hashnode.com/@tush-dev" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                Visit My Hashnode Profile
+                <ExternalLinkIcon className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
+          </div>
         </div>
         
         <PixelSeparator />

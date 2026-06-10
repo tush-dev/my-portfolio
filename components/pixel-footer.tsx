@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { GithubIcon, LinkedinIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { FileTextIcon, GithubIcon, LinkedinIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { PixelSeparator } from "@/components/pixel-separator";
 import { profile } from "@/data/portfolio";
@@ -15,6 +15,11 @@ export function PixelFooter() {
       icon: <LinkedinIcon size={24} />,
       href: profile.linkedin,
       label: "LinkedIn",
+    },
+    {
+      icon: <FileTextIcon size={24} />,
+      href: profile.resume,
+      label: "Resume",
     },
     {
       icon: <MailIcon size={24} />,
@@ -108,7 +113,7 @@ export function PixelFooter() {
             <h3 className="text-lg font-bold px-4 py-2 bg-black text-primary inline-block">
               Connect
             </h3>
-            <div className="flex space-x-4">
+            <div className="flex flex-wrap gap-4">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}

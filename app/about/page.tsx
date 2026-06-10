@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { FileTextIcon } from "lucide-react";
 import { PixelSeparator } from "@/components/pixel-separator";
 import { AboutSection } from "@/components/about-section";
+import { Button } from "@/components/ui/button";
 import { achievements, activities, certifications, education, experience, profile, skillGroups } from "@/data/portfolio";
 
 export default function AboutPage() {
@@ -12,6 +14,14 @@ export default function AboutPage() {
           <p className="text-xl max-w-2xl mx-auto">
             {profile.role} based at {profile.location}.
           </p>
+          <div className="mt-6 flex justify-center">
+            <Button asChild variant="outline" className="pixel-button bg-white text-lg py-3 sm:py-6 rounded-none">
+              <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                View Resume
+                <FileTextIcon className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
+          </div>
         </div>
         
         <PixelSeparator />

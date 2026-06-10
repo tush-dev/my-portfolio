@@ -5,6 +5,7 @@ export const profile = {
   email: "panwartushar23@gmail.com",
   linkedin: "https://www.linkedin.com/in/tushar-panwar-55b754382/",
   github: "https://github.com/tush-dev",
+  resume: "https://drive.google.com/file/d/1sFGMvcMmObraebMil5jqABI2vmqXEoIK/view?usp=sharing",
   photo: "/IMG_8646.jpg",
   location: "NIT Jalandhar, Punjab, India",
   summary:
